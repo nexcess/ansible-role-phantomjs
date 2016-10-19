@@ -3,10 +3,15 @@
   yum: name={{ item }} state=latest
   with_items: "{{ phantomjs_dependencies }}"
 
+- name: Get PhantomJS
+  get_url:
+    url=https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2
+    dest=/tmp
+
 - name: Unpack PhantomJS
   unarchive:
-    src=https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2
-    remote_src=yes
+    src=/tmp/phantomjs-{{ phantomjs-version }}-linux-x86_64.tar.bz2
+    copy=no
     dest=/tmp
 
 - name: Move PhantomJS Into Place
@@ -16,3 +21,9 @@
     mode=0755
     owner=root
     group=root
+
+- name: Kill Install Dir
+  file:
+    path=/tmp/phantomjs-{{ phantomjs-version }}-linux-x86_64
+    state=absent
+    recurse=yes
