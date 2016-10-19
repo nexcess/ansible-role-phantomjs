@@ -10,7 +10,7 @@
 
 - name: Unpack PhantomJS
   unarchive:
-    src=/tmp/phantomjs-{{ phantomjs-version }}-linux-x86_64.tar.bz2
+    src=/tmp/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2
     copy=no
     dest=/tmp
 
@@ -24,6 +24,6 @@
 
 - name: Kill Install Dir
   file:
-    path=/tmp/phantomjs-{{ phantomjs-version }}-linux-x86_64
+    path=/tmp/phantomjs-{{ phantomjs_version }}-linux-x86_64
     state=absent
     recurse=yes
