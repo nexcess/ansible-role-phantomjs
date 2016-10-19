@@ -26,4 +26,3 @@
   file:
     path=/tmp/phantomjs-{{ phantomjs_version }}-linux-x86_64
     state=absent
-    recurse=yes
