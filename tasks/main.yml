@@ -17,6 +17,6 @@
 - name: Symlink the PhantomJS Binary
   file:
     src=/opt/phantomjs-{{ phantomjs_version }}-linux-x86_64/bin/phantomjs
-    dest=/usr/local/bin
+    dest=/usr/local/bin/phantomjs
     mode=0755
     state=link
