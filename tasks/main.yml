@@ -16,7 +16,6 @@
 
 - name: Move PhantomJS Into Place
   copy:
-    become_user: root
     src=/tmp/phantomjs-{{ phantomjs_version }}-linux-x86_64/bin/phantomjs
     dest=/usr/local/bin
     mode=0755
