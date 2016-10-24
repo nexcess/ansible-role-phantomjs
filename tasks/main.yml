@@ -20,3 +20,9 @@
     dest=/usr/local/bin/phantomjs
     mode=0755
     state=link
+
+- name: Remove PhantomJS Tarball
+  file:
+    path=/opt/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2
+    state=absent
+    force=yes
