@@ -1,7 +1,7 @@
 Role Name
 =========
 
-This is a simple EL6/7 compatible Ansible role for installing PhantomJS
+This is a simple CentOS/RHEL 6/7 compatible Ansible role for installing PhantomJS
 
 Role Variables
 --------------
