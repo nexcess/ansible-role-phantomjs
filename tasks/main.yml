@@ -10,7 +10,7 @@
 
 - name: Unpack PhantomJS
   unarchive:
-    src=/tmp/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2
+    src=/opt/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2
     copy=no
     dest=/opt
 
