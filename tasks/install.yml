@@ -1,0 +1,31 @@
+---
+
+- name: Install Dependencies
+  yum:
+    name="{{ item }}"
+    state="present"
+  with_items: "{{ phantomjs_dependencies }}"
+
+- name: Get PhantomJS
+  get_url:
+    url="https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2"
+    dest="/opt"
+
+- name: Unpack PhantomJS
+  unarchive:
+    src="/opt/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2"
+    copy="no"
+    dest="/opt"
+
+- name: Symlink the PhantomJS Binary
+  file:
+    src="/opt/phantomjs-{{ phantomjs_version }}-linux-x86_64/bin/phantomjs"
+    dest="/usr/local/bin/phantomjs"
+    mode="0755"
+    state="link"
+
+- name: Remove PhantomJS Tarball
+  file:
+    path="/opt/phantomjs-{{ phantomjs_version }}-linux-x86_64.tar.bz2"
+    state="absent"
+    force="yes"
